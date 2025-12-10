@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from utils.toolbox1 import cinematica_direta_manual
 from utils.model_robot_rrrp import robot
-from utils.toolbox import traj_quintica
+from utils.toolbox1 import traj_quintica
 
 #carrega o robo
 meu_robo, L1, L2, L3 = robot()
@@ -59,3 +59,4 @@ plt.show()
 
         
         
+
