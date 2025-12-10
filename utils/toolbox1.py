@@ -52,4 +52,36 @@ def matriz_transformacao(theta, d, a, alpha):
         [st,  ct*ca, -ct*sa, a*st],
         [ 0,     sa,     ca,    d],
         [ 0,      0,      0,    1]
+
     ])
+
+def traj_quintica(q_start, q_end, tempo_total, dt):
+    """
+    Baseado no exemplo05.py da monitoria.
+    """
+    steps = int(tempo_total / dt)
+    t = np.linspace(0, tempo_total, steps)
+    n_juntas = len(q_start)
+    
+    #inicializa matrizes
+    q_traj = np.zeros((steps, n_juntas))
+    qd_traj = np.zeros((steps, n_juntas))
+    qdd_traj = np.zeros((steps, n_juntas))
+
+    for i, t_i in enumerate(t):
+        s = t_i / tempo_total
+        
+        #coeficientes do polinômio de jerk mínimo: 10, -15, 6
+        #posição
+        poly_pos = 10*s**3 - 15*s**4 + 6*s**5
+        q_traj[i, :] = q_start + (q_end - q_start) * poly_pos
+        
+        #velocidade (Derivada 1)
+        poly_vel = (30*s**2 - 60*s**3 + 30*s**4) / tempo_total
+        qd_traj[i, :] = (q_end - q_start) * poly_vel
+        
+        #aceleração (Derivada 2)
+        poly_acc = (60*s - 180*s**2 + 120*s**3) / (tempo_total**2)
+        qdd_traj[i, :] = (q_end - q_start) * poly_acc
+        
+    return t, q_traj, qd_traj, qdd_traj
