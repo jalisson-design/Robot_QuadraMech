@@ -34,7 +34,7 @@ O script principal (robo_quadramech.py) executa um loop interativo no terminal p
  
  * Execute o script:
    ```
-   python robo_quadramech.py
+   python cinematic_dir.py
    ```
 
  *  O programa solicitará as posições finais das juntas (q1, q2, q3 em radianos e q4 em metros).
