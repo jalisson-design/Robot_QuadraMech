@@ -1,16 +1,21 @@
 import roboticstoolbox as rtb
 import numpy as np
 import matplotlib.pyplot as plt
-from utils.toolbox1 import cinematica_direta_manual
-from utils.model_robot_rrrp import robot
+from utils.toolbox1 import cinematica_nova
+from utils.model_robot_rrrp import robot_DH
+from utils.model_robot_rrrp import robot_URDF
 from utils.toolbox1 import traj_quintica
 
 #carrega o robo
-meu_robo, L1, L2, L3 = robot()
+robo_DH, L1, L2, L3 = robot_DH()
+
+# print(robo_DH)
+# print("-" * 30)  
 
 # posição da junta inicial e final
 q_atual = np.array([0.0, 0.0, 0.0, 0.0])
 # q_final = np.array([np.pi/6, -np.pi/6, np.pi/4, 0.2])
+#q_final = np.array([0, 1.052, -1.052, -0.305])
 
 # Tempo de simulacao
 time_s = 5.0
@@ -32,9 +37,9 @@ while True:
     
     try:
         q_destino_valores = [float(x) for x in entrada.split()] #correção 
-        q_final = np.array(q_destino_valores) #correção1.57
+        q_final = np.array(q_destino_valores) #correção
         #cinematica:
-        xyz, T_final = cinematica_direta_manual(q_final, L1, L2, L3) #carrega a matriz
+        xyz, T_final = cinematica_nova(q_final, L1, L2, L3) #carrega a matriz
         print("-" * 30)
         print(f" Coordenadas Finais Calculadas (Manual):")
         print(f"  X={xyz[0]:.3f}, Y={xyz[1]:.3f}, Z={xyz[2]:.3f}")
@@ -44,7 +49,7 @@ while True:
         t_total, traj_posicoes, qd, qdd = traj_quintica(q_atual, q_final, time_s, dt)
         
         # 4. Simula o Movimento
-        meu_robo.plot(traj_posicoes, backend="pyplot", dt=dt)
+        robo_DH.plot(traj_posicoes, backend="pyplot", dt=dt)
         
     except ValueError:
         print(" Erro: Números inválidos (use ponto).")
@@ -56,7 +61,5 @@ plt.show()
 
 
 
-
         
         
-
