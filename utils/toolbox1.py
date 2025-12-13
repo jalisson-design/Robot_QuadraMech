@@ -68,3 +68,37 @@ def cinematica_nova(q, l1, l2, l3): #utilizar essa:
     
     return np.array([x, y, z]), T_final
 
+
+
+def cinematica_inversa(xyz, L1, L2, L3):
+    """
+    Mantem o sensor perpendicular ao chão
+    """
+    x,y,z = xyz
+
+    theta1 = np.arctan2(y, x)
+    
+    #A = x*c1 + ys1 = modulo de xy
+    A = np.sqrt(x**2 + y**2)
+    Z_linha = z - L1  
+    
+    #pz = L1 + L2 * sen(theta2) , já q t23=90 e c23 =0
+    sin_theta2 = Z_linha / L2
+    
+    #ver a altura do braço
+    if sin_theta2 > 1.0 or sin_theta2 < -1.0:
+        raise ValueError(
+            f"Altura inalcançável para ferramenta horizontal. "
+            f"A diferença de altura ({Z_linha:.3f}) é maior que o elo L2 ({L2})."
+        )
+    
+    theta2 = np.arcsin(sin_theta2)
+    theta3 = (np.pi / 2) - theta2
+
+    #A = L2 * cos(theta2) + (L3 + d4)
+    d4 = A - (L2 * np.cos(theta2)) - L3
+    
+    if d4 < 0:
+        print(f"Aviso: d4 calculado é negativo ({d4:.3f}).")
+        
+    return theta1, theta2, theta3, d4
