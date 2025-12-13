@@ -9,7 +9,7 @@ import os
 #  Junta 1  | theta1 |    l1   |  0   |  pi/2 |
 #  Junta 2  | theta2 |    0    |  l2  |   0   |
 #  Junta 3  | theta3 |    0    |   0  |  pi/2 |
-#  Junta 4  |   0    | l3 + d4 |   0  | pi/2  |
+#  Junta 4  |   0    | l3 + d4 |   0  |   0   |
 #           +--------+---------+------+-------+      
 
 def robot_DH():
@@ -46,7 +46,7 @@ def robot_DH():
  link1 = rtb.RevoluteDH(d=l1, a=0, alpha=np.pi/2,m=m1,r=r1,I=I1)
  link2 = rtb.RevoluteDH(d=0,  a=l2, alpha=0,m=m2,r=r2,I=I2)
  link3 = rtb.RevoluteDH(d=0,  a=0, alpha=np.pi/2,m=m3,r=r3,I=I3)
- link4 = rtb.PrismaticDH(theta=0, a=0, alpha=np.pi/2, offset=l3, qlim=[0, 1.0], m=m4,r=r4,I=I4)
+ link4 = rtb.PrismaticDH(theta=0, a=0, alpha=0, offset=l3, qlim=[0, 1.0], m=m4,r=r4,I=I4)
 
 
  # Criação do robô 
@@ -70,3 +70,4 @@ def robot_URDF():
 )
 
  return robot_URDF
+
