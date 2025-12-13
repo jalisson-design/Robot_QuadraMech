@@ -2,7 +2,7 @@ import numpy as np
 
 def traj_quintica(q_start, q_end, tempo_total, dt):
     """
-    Baseado no exemplo05.py da monitoria.
+    Baseado no exemplo05.py da monitoria
     """
     steps = int(tempo_total / dt)
     t = np.linspace(0, tempo_total, steps)
@@ -88,8 +88,8 @@ def cinematica_inversa(xyz, L1, L2, L3):
     #ver a altura do braço
     if sin_theta2 > 1.0 or sin_theta2 < -1.0:
         raise ValueError(
-            f"Altura inalcançável para ferramenta horizontal. "
-            f"A diferença de altura ({Z_linha:.3f}) é maior que o elo L2 ({L2})."
+            f"Altura inalcançável para ferramenta horizontal"
+            f"A diferença de altura ({Z_linha:.3f}) é maior que o elo L2 ({L2})"
         )
     
     theta2 = np.arcsin(sin_theta2)
@@ -99,6 +99,8 @@ def cinematica_inversa(xyz, L1, L2, L3):
     d4 = A - (L2 * np.cos(theta2)) - L3
     
     if d4 < 0:
-        print(f"Aviso: d4 calculado é negativo ({d4:.3f}).")
+        print(f"Aviso: d4 calculado é negativo ({d4:.3f})")
+    if d4> 1:
+        print(f"Aviso: d4 calculado excede o limite de 1m ({d4:.3f})")
         
     return theta1, theta2, theta3, d4
