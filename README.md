@@ -30,7 +30,7 @@ conda activate dinamica
 ```
 
 ### Execução do Simulador (Cinemática direta e Trajetória)
-O script principal (robo_quadramech.py) executa um loop interativo no terminal para testar a cinemática e a execução de trajetória, cumprindo o requisito de interação.
+O script principal (cinematic_dir.py) executa um loop interativo no terminal para testar a cinemática e a execução de trajetória, cumprindo o requisito de interação.
  
  * Execute o script:
    ```
@@ -38,4 +38,27 @@ O script principal (robo_quadramech.py) executa um loop interativo no terminal p
    ```
 
  *  O programa solicitará as posições finais das juntas (q1, q2, q3 em radianos e q4 em metros).
- *  O Console ira exibir as coordenadas (X,Y,Z) calculadas pela função ```cinematica_direta_manual```
+ *  O Console ira exibir as coordenadas (X,Y,Z) calculadas pela função ```cinematica_nova``` 
+
+### Execução do Simulador (Cinemática indireta e Trajetória)
+O script principal (cinematic_inv.py) executa um loop interativo no terminal para testar a cinemática e a execução de trajetória, cumprindo o requisito de interação.
+ 
+ * Execute o script:
+   ```
+   python cinematic_inv.py
+   ```
+
+ *  O programa solicitará a posição final do atuador (x,y,z).
+ *  O Console ira exibir as configurações de cada junta (q1, q2, q3, q4) calculadas pela função ```cinematica_inversa``` 
+
+### Execução do Simulador (Análise Dinâmica e Trajetória)
+O script principal (analise_din.py) executa uma movimentação referente a rotina do robô com sensor ultrassonico.
+ 
+ * Execute o script:
+   ```
+   python analise_din.py
+   ```
+
+ *  O programa exibirá uma figura com as posições, velocidades e acelerações em cada junta, logo após exibirá o torque em cada junta e por última a simulação do movimento.
+
+ 
