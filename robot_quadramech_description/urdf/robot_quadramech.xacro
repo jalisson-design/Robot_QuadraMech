@@ -1,0 +1,168 @@
+<?xml version="1.0" ?>
+<robot name="robot_quadramech" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find robot_quadramech_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find robot_quadramech_description)/urdf/robot_quadramech.trans" />
+<xacro:include filename="$(find robot_quadramech_description)/urdf/robot_quadramech.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="third_link">
+  <inertial>
+    <origin xyz="0.0 -0.088 -1.1" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.088 -1.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/third_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.088 -1.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/third_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="second_link">
+  <inertial>
+    <origin xyz="0.0 0.0 -0.13" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.13" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/second_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.13" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/second_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fouth_link">
+  <inertial>
+    <origin xyz="0.093 -0.8 -1.05" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.093 -0.8 -1.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/fouth_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.093 -0.8 -1.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/fouth_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fifth_link">
+  <inertial>
+    <origin xyz="-0.107 -0.8 -0.75" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.107 -0.8 -0.75" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/fifth_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.107 -0.8 -0.75" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/fifth_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="sixth_link">
+  <inertial>
+    <origin xyz="0.693 -1.5 -0.493" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.693 -1.5 -0.493" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/sixth_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.693 -1.5 -0.493" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_quadramech_description/meshes/sixth_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolucionar 1" type="continuous">
+  <origin xyz="-0.0 0.088 0.97" rpy="0 0 0"/>
+  <parent link="second_link"/>
+  <child link="third_link"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolucionar 2" type="continuous">
+  <origin xyz="0.0 0.0 0.13" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="second_link"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolucionar 3" type="continuous">
+  <origin xyz="-0.093 0.712 -0.05" rpy="0 0 0"/>
+  <parent link="third_link"/>
+  <child link="fouth_link"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Rígido 4" type="fixed">
+  <origin xyz="0.2 0.0 -0.3" rpy="0 0 0"/>
+  <parent link="fouth_link"/>
+  <child link="fifth_link"/>
+</joint>
+
+<joint name="Deslizador 5" type="prismatic">
+  <origin xyz="-0.8 0.7 -0.257" rpy="0 0 0"/>
+  <parent link="fifth_link"/>
+  <child link="sixth_link"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <limit upper="0.2" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+</robot>

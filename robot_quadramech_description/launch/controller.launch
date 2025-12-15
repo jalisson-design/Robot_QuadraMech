@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find robot_quadramech_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="robot_quadramech" args="Revolucionar 1_position_controller Revolucionar 2_position_controller Revolucionar 3_position_controller Deslizador 5_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/robot_quadramech/joint_states"/>
+</node>
+
+</launch>
